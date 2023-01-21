@@ -1,75 +1,35 @@
 package Transport;
 
-public abstract class Transport {
-    private String brand;
-    private String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maximalSpeed;
+public abstract class Transport implements Moveable{
+    private final String brand;
+    private final String model;
+    private final float engineValue;
 
     public Transport(String brand,
                      String model,
-                     int year,
-                     String country,
-                     String color,
-                     int maximalSpeed) {
-        setBrand(brand);
-        setModel(model);
-        this.year = validateInt(year);
-        this.country = validateString(country, "default");
-        setColor(color);
-        setMaximalSpeed(maximalSpeed);
+                     float engineValue) {
+        this.brand = validateString(brand, "Default");
+        this.model = validateString(model, "Default");
+        this.engineValue = validateFloat(engineValue);
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = validateString(brand, "default");
-    }
-
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = validateString(model, "default");
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = validateString(color, "default");
-    }
-
-    public int getMaximalSpeed() {
-        return maximalSpeed;
-    }
-
-    public void setMaximalSpeed(int maximalSpeed) {
-        this.maximalSpeed = validateInt(maximalSpeed);
+    public float getEngineValue() {
+        return engineValue;
     }
 
     @Override
     public String toString() {
-        return "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", country='" + country + '\'' +
-                ", color='" + color + '\'' +
-                ", maximalSpeed=" + maximalSpeed;
+        return "brand=" + brand + '\'' +
+                ", model=" + model + '\'' +
+                ", engineValue=" + engineValue;
     }
 
     public String validateString(String validateString, String defaultValue) {
@@ -78,6 +38,10 @@ public abstract class Transport {
 
     public Integer validateInt(Integer validateInt) {
         return validateInt == null || validateInt < 0 ? 0 : validateInt;
+    }
+
+    public Float validateFloat(Float validateFloat) {
+        return validateFloat == null || validateFloat < 0 ? 0 : validateFloat;
     }
 
 }

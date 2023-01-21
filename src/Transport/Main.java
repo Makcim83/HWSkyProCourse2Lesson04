@@ -2,11 +2,16 @@ package Transport;
 
 public class Main {
     public static void main(String[] args) {
-        Car bike = new Car("JAWA", "5", 1997, "Russia", "Red", 150, 0);
+        Car bike = new Car("JAWA", "5", .7f);
 
 
         print(bike);
-        TestMain.testMain();
+
+
+
+
+        //TestMain.testMain();
+
     }
 
     public static void print(Object o) {
