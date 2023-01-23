@@ -1,7 +1,7 @@
 package Transport;
 
 
-public abstract class Transport {
+public abstract class Transport implements RacingAble{
     private final String brand;
     private final String model;
     private final float engineValue;
@@ -46,19 +46,12 @@ public abstract class Transport {
     }
 
     public void startMove() {
-        System.out.println(this.getBrand() + " Start moving");
+        System.out.println(getBrand() + " Start moving");
     }
 
     public void stopMove() {
-        System.out.println(this.getBrand() + " Stop moving");
+        System.out.println(getBrand() + " Stop moving");
     }
 
-    public static void startTheRace(Transport[] arr) {
-        for (Transport tr : arr
-        ) {
-            tr.startMove();
-
-        }
-    }
 
 }

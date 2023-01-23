@@ -1,13 +1,26 @@
 package Transport;
 
 public interface RacingAble {
-    int bestLapTime = 0;
-    int maximalSpeed = 0;
+    int bestLapTime = 200;
+    int maximalSpeed = 100;
 
 
-    static void pitStop(Transport tr){
-        System.out.println("Pit stop!" + tr.getBrand());
+    static void printAllRacingCars(Transport[] arr) {
+        System.out.println("Racing List:");
+        for (Transport t : arr
+        ) {
+            System.out.println("\n" + t.toString());
+        }
     }
 
+    static void startTheRace(Transport[] arr) {
+        for (Transport tr : arr
+        ) {
+            tr.startMove();
+        }
+    }
 
+    default void pitStop(Transport tr) {
+        System.out.println("Pit stop!" + tr.getBrand());
+    }
 }
