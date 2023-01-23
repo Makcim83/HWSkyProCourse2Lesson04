@@ -2,8 +2,12 @@ package Transport;
 
 public class Bus extends Transport {
 
-    public Bus(String brand, String model, float engineValue) {
-        super(brand, model, engineValue);
+    public Bus(String brand,
+               String model,
+               float engineValue) {
+        super(brand,
+                model,
+                engineValue);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package Transport;
 
-public abstract class Transport implements Moveable{
+
+public abstract class Transport {
     private final String brand;
     private final String model;
     private final float engineValue;
@@ -42,6 +43,22 @@ public abstract class Transport implements Moveable{
 
     public Float validateFloat(Float validateFloat) {
         return validateFloat == null || validateFloat < 0 ? 0 : validateFloat;
+    }
+
+    public void startMove() {
+        System.out.println(this.getBrand() + " Start moving");
+    }
+
+    public void stopMove() {
+        System.out.println(this.getBrand() + " Stop moving");
+    }
+
+    public static void startTheRace(Transport[] arr) {
+        for (Transport tr : arr
+        ) {
+            tr.startMove();
+
+        }
     }
 
 }
