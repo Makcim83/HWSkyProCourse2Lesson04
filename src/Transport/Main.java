@@ -34,13 +34,8 @@ public class Main {
         RacingAble.startTheRace(racingTrucks.toArray(new Truck[0]));
 
 
-    }
-
 
 
         //TestMain.testMain();
-
-    public static void print(Object o) {
-        System.out.println(o);
     }
 }

@@ -5,11 +5,10 @@ public class TestMain {
 
         System.out.println("\nTest. Start objects");
         Car bike = new Car("JAWA", "5", .9f, "B");
-        Main.print(bike);
+        System.out.println(bike.toString());
         System.out.println("Test. Objects after modification:");
-        Main.print(new Car("    ", "", -.9f, "B"));
-        Main.print(new Car(null, null, 0f, "B"));
-
+        System.out.println((new Car("    ", "", -.9f, "B")).toString());
+        System.out.println((new Car(null, null, 0f, "B")).toString());
 
 
         // тест validateFloat(float) нужно будет переделать для проверки на null
