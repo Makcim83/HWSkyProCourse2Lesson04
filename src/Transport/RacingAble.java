@@ -16,11 +16,19 @@ public interface RacingAble {
     static void startTheRace(Transport[] arr) {
         for (Transport tr : arr
         ) {
-            tr.startMove();
+            tr.start();
         }
     }
 
-    default void pitStop(Transport tr) {
-        System.out.println("Pit stop!" + tr.getBrand());
+    static void pitStop(Transport[] tr) {
+        for (Transport t: tr
+             ) {
+            System.out.println("Pit stop!" + t.getBrand());
+            t.stop();
+            t.start();
+        }
+
+
+
     }
 }

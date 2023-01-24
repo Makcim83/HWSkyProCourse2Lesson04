@@ -1,17 +1,23 @@
 package Transport;
 
 
-public abstract class Transport implements RacingAble{
+public abstract class Transport implements StartBehavior, StopBehavior {
     private final String brand;
     private final String model;
     private final float engineValue;
+    private final String needCategory;
+
+    StartBehavior startBehavior;
+    StopBehavior stopBehavior;
 
     public Transport(String brand,
                      String model,
-                     float engineValue) {
+                     float engineValue,
+                     String needCategory) {
         this.brand = validateString(brand, "Default");
         this.model = validateString(model, "Default");
         this.engineValue = validateFloat(engineValue);
+        this.needCategory = validateString(needCategory, "No");
     }
 
     public String getBrand() {
@@ -24,6 +30,10 @@ public abstract class Transport implements RacingAble{
 
     public float getEngineValue() {
         return engineValue;
+    }
+
+    public String getNeedCategory() {
+        return needCategory;
     }
 
     @Override
@@ -45,11 +55,11 @@ public abstract class Transport implements RacingAble{
         return validateFloat == null || validateFloat < 0 ? 0 : validateFloat;
     }
 
-    public void startMove() {
+    public void start() {
         System.out.println(getBrand() + " Start moving");
     }
 
-    public void stopMove() {
+    public void stop() {
         System.out.println(getBrand() + " Stop moving");
     }
 
