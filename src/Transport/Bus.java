@@ -13,6 +13,11 @@ public class Bus extends Transport {
     }
 
     @Override
+    public void makeDiagnostic() throws Exception {
+        throw new Exception("Busses need not diagnostic");
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }

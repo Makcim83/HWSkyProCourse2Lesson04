@@ -1,14 +1,11 @@
 package Transport;
 
 
-public abstract class Transport implements StartBehavior, StopBehavior {
+public abstract class Transport implements MoveBehavior {
     private final String brand;
     private final String model;
     private final float engineValue;
     private final String needCategory;
-
-    StartBehavior startBehavior;
-    StopBehavior stopBehavior;
 
     public Transport(String brand,
                      String model,
@@ -18,6 +15,10 @@ public abstract class Transport implements StartBehavior, StopBehavior {
         this.model = validateString(model, "Default");
         this.engineValue = validateFloat(engineValue);
         this.needCategory = validateString(needCategory, "No");
+    }
+
+    public void makeDiagnostic() throws Exception {
+
     }
 
     public String getBrand() {

@@ -14,6 +14,11 @@ public class Truck extends Transport {
     }
 
     @Override
+    public void makeDiagnostic() throws DiagnosticExceptioon {
+        System.out.println("Truck pass diagnostic");
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }

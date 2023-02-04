@@ -1,6 +1,6 @@
 package Transport;
 
-public class DriverWitCategory implements StartBehavior, StopBehavior{
+public class DriverWitCategory implements MoveBehavior{
     public String category;
 
     public DriverWitCategory(String category) {

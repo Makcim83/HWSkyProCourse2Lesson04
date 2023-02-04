@@ -13,6 +13,10 @@ public class Car extends Transport {
                 needCategory);
     }
 
+    @Override
+    public void makeDiagnostic() throws DiagnosticExceptioon {
+        System.out.println("Car pass diagnostic " + getBrand());
+    }
 
     @Override
     public String toString() {
