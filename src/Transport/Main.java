@@ -1,5 +1,11 @@
 package Transport;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import static Transport.AutoService.carsToService;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -16,12 +22,16 @@ public class Main {
         racingTrucks.add(new Truck("ZIL", "130", 1.4f, "C"));
         RacingAble.printAllRacingCars(racingCars.toArray(new Transport[0]));
 
-
-
+        AutoService.mechanics.offer(new Mechanic("Ivan", "Wheels"));
+        AutoService.mechanics.offer(new Mechanic("Oleg", "Car Motors"));
+        AutoService.mechanics.offer(new Mechanic("Andrey", "Welding works"));
 
         System.out.println("\nRace with all transport types");
-        RacingAble.startTheRace(racingCars.toArray(new Transport[0]));
-        RacingAble.pitStop(racingCars.toArray(new Transport[0]));
+        ArrayList<Transport> allTypesOfTransport = new ArrayList<>();
+        allTypesOfTransport.addAll(racingCars);
+        allTypesOfTransport.addAll(racingBuses);
+        allTypesOfTransport.addAll(racingTrucks);
+        RacingAble.startTheRace(allTypesOfTransport.toArray(new Transport[0]));
 
         System.out.println("\nRace only Cars");
         RacingAble.startTheRace(racingCars.toArray(new Car[0]));
@@ -31,6 +41,18 @@ public class Main {
 
         System.out.println("\nRace only Trucks");
         RacingAble.startTheRace(racingTrucks.toArray(new Truck[0]));
+
+        System.out.println("\nDiagnostic of all transport types");
+
+
+        Car forTestCar = new Car("TestMoto", "5", .7f, "B");
+        AutoServiceBehavior.diagnostic(forTestCar);
+
+        System.out.println("All types of transport added to diagnostic queue");
+        carsToService = new LinkedList<Transport>();
+        carsToService.addAll(allTypesOfTransport);
+        AutoService.makeDiagnostic(carsToService);
+
 
 
 

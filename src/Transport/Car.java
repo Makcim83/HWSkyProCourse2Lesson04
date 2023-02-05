@@ -14,8 +14,9 @@ public class Car extends Transport {
     }
 
     @Override
-    public void makeDiagnostic() throws DiagnosticExceptioon {
+    public void isNeedDiagnostic() throws DiagnosticExceptioon {
         System.out.println("Car pass diagnostic " + getBrand());
+
     }
 
     @Override

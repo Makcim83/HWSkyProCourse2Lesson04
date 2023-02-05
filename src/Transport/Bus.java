@@ -13,7 +13,7 @@ public class Bus extends Transport {
     }
 
     @Override
-    public void makeDiagnostic() throws Exception {
+    public void isNeedDiagnostic() throws Exception {
         throw new Exception("Busses need not diagnostic");
     }
 

@@ -1,7 +1,7 @@
 package Transport;
 
 
-public abstract class Transport implements MoveBehavior {
+public abstract class Transport implements DriverBehavior {
     private final String brand;
     private final String model;
     private final float engineValue;
@@ -17,9 +17,13 @@ public abstract class Transport implements MoveBehavior {
         this.needCategory = validateString(needCategory, "No");
     }
 
-    public void makeDiagnostic() throws Exception {
-
+    public void isNeedDiagnostic() throws Exception {
     }
+
+    public static void makeDiagnostic(Mechanic mechanic) throws DiagnosticExceptioon {
+        System.out.println("No mechanics, who can make diagnostic");
+    }
+
 
     public String getBrand() {
         return brand;
@@ -36,6 +40,7 @@ public abstract class Transport implements MoveBehavior {
     public String getNeedCategory() {
         return needCategory;
     }
+
 
     @Override
     public String toString() {

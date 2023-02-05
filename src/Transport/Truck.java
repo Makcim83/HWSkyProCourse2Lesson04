@@ -3,6 +3,7 @@ package Transport;
 public class Truck extends Transport {
 
     public DriverWitCategory driverWitCategory = new DriverWitCategory(getNeedCategory());
+
     public Truck(String brand,
                  String model,
                  float engineValue,
@@ -14,7 +15,7 @@ public class Truck extends Transport {
     }
 
     @Override
-    public void makeDiagnostic() throws DiagnosticExceptioon {
+    public void isNeedDiagnostic() throws DiagnosticExceptioon {
         System.out.println("Truck pass diagnostic");
     }
 
