@@ -1,7 +1,7 @@
 package Transport;
 
 public interface DriverBehavior {
-    default void start(){
+    default void start() {
         System.out.println("Can`t move");
     }
 

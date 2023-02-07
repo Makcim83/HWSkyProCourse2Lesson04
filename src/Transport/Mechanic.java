@@ -4,10 +4,9 @@ public class Mechanic implements AutoServiceBehavior {
     private String name;
     private String company;
 
-    public Mechanic(String name,
-                    String company) {
-        this.name = getName();
-        this.company = getCompany();
+    public Mechanic(String name, String company) {
+        this.name = name;
+        this.company = company;
     }
 
     public String getName() {
@@ -30,6 +29,8 @@ public class Mechanic implements AutoServiceBehavior {
 
     @Override
     public String toString() {
-        return ("Mechaic " + this.getName() + " " + this.getCompany());
+        return ("Mechaic " +
+                getName() + " " +
+                getCompany());
     }
 }

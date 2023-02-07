@@ -2,6 +2,7 @@ package Transport;
 
 public class Bus extends Transport {
     DriverWitCategory driverWitCategory = new DriverWitCategory("D");
+
     public Bus(String brand,
                String model,
                float engineValue,
@@ -13,8 +14,14 @@ public class Bus extends Transport {
     }
 
     @Override
-    public void isNeedDiagnostic() throws Exception {
-        throw new Exception("Busses need not diagnostic");
+    public boolean isNeedDiagnostic() {
+        try {
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            return false;
+        }
     }
 
     @Override

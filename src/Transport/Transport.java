@@ -1,6 +1,5 @@
 package Transport;
 
-
 public abstract class Transport implements DriverBehavior {
     private final String brand;
     private final String model;
@@ -17,7 +16,9 @@ public abstract class Transport implements DriverBehavior {
         this.needCategory = validateString(needCategory, "No");
     }
 
-    public void isNeedDiagnostic() throws Exception {
+    public boolean isNeedDiagnostic() throws Exception {
+        System.out.println("we do not know, is need diagnostic for this transport");
+        return false;
     }
 
     public static void makeDiagnostic(Mechanic mechanic) throws DiagnosticExceptioon {
@@ -68,6 +69,4 @@ public abstract class Transport implements DriverBehavior {
     public void stop() {
         System.out.println(getBrand() + " Stop moving");
     }
-
-
 }

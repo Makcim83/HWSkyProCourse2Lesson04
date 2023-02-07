@@ -1,6 +1,7 @@
 package Transport;
 
 public class Car extends Transport {
+
     public DriverWitCategory driverBCategory = new DriverWitCategory(getNeedCategory());
 
     public Car(String brand,
@@ -14,9 +15,8 @@ public class Car extends Transport {
     }
 
     @Override
-    public void isNeedDiagnostic() throws DiagnosticExceptioon {
-        System.out.println("Car pass diagnostic " + getBrand());
-
+    public boolean isNeedDiagnostic() {
+        return true;
     }
 
     @Override
@@ -34,6 +34,5 @@ public class Car extends Transport {
     public void stop() {
         driverBCategory.stop();
         System.out.println(getBrand());
-
     }
 }

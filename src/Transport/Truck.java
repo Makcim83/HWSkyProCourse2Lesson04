@@ -15,8 +15,8 @@ public class Truck extends Transport {
     }
 
     @Override
-    public void isNeedDiagnostic() throws DiagnosticExceptioon {
-        System.out.println("Truck pass diagnostic");
+    public boolean isNeedDiagnostic() {
+        return true;
     }
 
     @Override

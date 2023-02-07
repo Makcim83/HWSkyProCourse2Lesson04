@@ -2,14 +2,12 @@ package Transport;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Queue;
 
 import static Transport.AutoService.carsToService;
-
+import static Transport.AutoService.mechanics;
 
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception {
         ArrayList<Car> racingCars = new ArrayList<>();
         racingCars.add(new Car("JAWA", "5", .7f, "B"));
         racingCars.add(new Car("Audi", "A8", 1.7f, "B"));
@@ -22,15 +20,25 @@ public class Main {
         racingTrucks.add(new Truck("ZIL", "130", 1.4f, "C"));
         RacingAble.printAllRacingCars(racingCars.toArray(new Transport[0]));
 
+        System.out.println("\nAuto service personal will make Diagnostic Cars before Racing");
         AutoService.mechanics.offer(new Mechanic("Ivan", "Wheels"));
         AutoService.mechanics.offer(new Mechanic("Oleg", "Car Motors"));
         AutoService.mechanics.offer(new Mechanic("Andrey", "Welding works"));
+        AutoService.mechanics.offer(new Mechanic("Michail", "Wash and clean"));
+        System.out.println(mechanics.toString());
 
-        System.out.println("\nRace with all transport types");
         ArrayList<Transport> allTypesOfTransport = new ArrayList<>();
         allTypesOfTransport.addAll(racingCars);
         allTypesOfTransport.addAll(racingBuses);
         allTypesOfTransport.addAll(racingTrucks);
+
+        System.out.println("\nAll types of transport added to diagnostic queue");
+        carsToService = new LinkedList<>();
+        carsToService.addAll(allTypesOfTransport);
+        AutoService.diagnostic(carsToService);
+
+
+        System.out.println("\nRace with all transport types");
         RacingAble.startTheRace(allTypesOfTransport.toArray(new Transport[0]));
 
         System.out.println("\nRace only Cars");
@@ -41,21 +49,6 @@ public class Main {
 
         System.out.println("\nRace only Trucks");
         RacingAble.startTheRace(racingTrucks.toArray(new Truck[0]));
-
-        System.out.println("\nDiagnostic of all transport types");
-
-
-        Car forTestCar = new Car("TestMoto", "5", .7f, "B");
-        AutoServiceBehavior.diagnostic(forTestCar);
-
-        System.out.println("All types of transport added to diagnostic queue");
-        carsToService = new LinkedList<Transport>();
-        carsToService.addAll(allTypesOfTransport);
-        AutoService.makeDiagnostic(carsToService);
-
-
-
-
 
         //TestMain.testMain();
     }
