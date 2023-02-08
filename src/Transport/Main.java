@@ -3,29 +3,29 @@ package Transport;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import static Transport.AutoService.carsToService;
-import static Transport.AutoService.mechanics;
+import static Transport.AutoService.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        ArrayList<Car> racingCars = new ArrayList<>();
-        racingCars.add(new Car("JAWA", "5", .7f, "B"));
-        racingCars.add(new Car("Audi", "A8", 1.7f, "B"));
-        racingCars.add(new Car("Lada", "2101", 1.1f, "B"));
-        racingCars.add(new Car("BMW", "7", 1.9f, "B"));
-        ArrayList<Bus> racingBuses = new ArrayList<>();
-        racingBuses.add(new Bus("Paz", "111", 1.2f, "D"));
-        ArrayList<Truck> racingTrucks = new ArrayList<>();
-        racingTrucks.add(new Truck("Kamaz", "2208", 2.0f, "C"));
-        racingTrucks.add(new Truck("ZIL", "130", 1.4f, "C"));
-        RacingAble.printAllRacingCars(racingCars.toArray(new Transport[0]));
-
         System.out.println("\nAuto service personal will make Diagnostic Cars before Racing");
         AutoService.mechanics.offer(new Mechanic("Ivan", "Wheels"));
         AutoService.mechanics.offer(new Mechanic("Oleg", "Car Motors"));
         AutoService.mechanics.offer(new Mechanic("Andrey", "Welding works"));
         AutoService.mechanics.offer(new Mechanic("Michail", "Wash and clean"));
         System.out.println(mechanics.toString());
+
+        ArrayList<Car> racingCars = new ArrayList<>();
+        racingCars.add(new Car("JAWA", "5", .7f, "B", getNextMechanic()));
+        racingCars.add(new Car("Audi", "A8", 1.7f, "B", getNextMechanic()));
+        racingCars.add(new Car("Lada", "2101", 1.1f, "B", getNextMechanic()));
+        racingCars.add(new Car("BMW", "7", 1.9f, "B", getNextMechanic()));
+        ArrayList<Bus> racingBuses = new ArrayList<>();
+        racingBuses.add(new Bus("Paz", "111", 1.2f, "D", getNextMechanic()));
+        ArrayList<Truck> racingTrucks = new ArrayList<>();
+        racingTrucks.add(new Truck("Kamaz", "2208", 2.0f, "C", getNextMechanic()));
+        racingTrucks.add(new Truck("ZIL", "130", 1.4f, "C", getNextMechanic()));
+        RacingAble.printAllRacingCars(racingCars.toArray(new Transport[0]));
+
 
         ArrayList<Transport> allTypesOfTransport = new ArrayList<>();
         allTypesOfTransport.addAll(racingCars);
@@ -49,7 +49,5 @@ public class Main {
 
         System.out.println("\nRace only Trucks");
         RacingAble.startTheRace(racingTrucks.toArray(new Truck[0]));
-
-        //TestMain.testMain();
     }
 }

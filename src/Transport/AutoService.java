@@ -14,22 +14,25 @@ public abstract class AutoService implements AutoServiceBehavior {
         return o;
     }
 
+    public static Mechanic getNextMechanic() {
+        Mechanic m = mechanics.peek();
+        rotateQueue(mechanics);
+        return m;
+    }
+
     public static void rotateQueue(Queue q) {
         Object o = q.peek();
         q.add(o);
         q.remove(o);
     }
 
-    public static <T extends Transport> void diagnostic(Queue<Transport> carsToService) throws Exception {
+    public static void diagnostic(Queue<Transport> carsToService) throws Exception {
         while (carsToService.size() > 0) {
             if (carsToService.peek().isNeedDiagnostic()) {
                 AutoServiceBehavior.diagnostic(carsToService.poll());
             } else {
-//                try {
-//                    throw new DiagnosticExceptioon("Diagnostic no pass");
-//                } finally {
-                    carsToService.remove();
-//                }
+                System.out.println("Busses need not diagnostic");
+                carsToService.remove();
             }
         }
     }

@@ -2,16 +2,18 @@ package Transport;
 
 public class Car extends Transport {
 
-    public DriverWitCategory driverBCategory = new DriverWitCategory(getNeedCategory());
+    public DriverWithCategory driverBCategory = new DriverWithCategory(getNeedCategory());
 
     public Car(String brand,
                String model,
                float engineValue,
-               String needCategory) {
+               String needCategory,
+               Mechanic mechanic) {
         super(brand,
                 model,
                 engineValue,
-                needCategory);
+                needCategory
+        );
     }
 
     @Override

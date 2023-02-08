@@ -4,7 +4,8 @@ public abstract class Transport implements DriverBehavior {
     private final String brand;
     private final String model;
     private final float engineValue;
-    private final String needCategory;
+    private String needCategory;
+    private Mechanic mechanic;
 
     public Transport(String brand,
                      String model,
@@ -14,10 +15,10 @@ public abstract class Transport implements DriverBehavior {
         this.model = validateString(model, "Default");
         this.engineValue = validateFloat(engineValue);
         this.needCategory = validateString(needCategory, "No");
+        this.mechanic = AutoService.getNextMechanic();
     }
 
     public boolean isNeedDiagnostic() throws Exception {
-        System.out.println("we do not know, is need diagnostic for this transport");
         return false;
     }
 

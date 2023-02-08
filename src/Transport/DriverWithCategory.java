@@ -1,10 +1,11 @@
 package Transport;
 
-public class DriverWitCategory implements DriverBehavior {
-    public String category;
+public class DriverWithCategory implements DriverBehavior {
+    private String category;
+    private String nameDriver;
 
-    public DriverWitCategory(String category) {
-        this.category = category;
+    public DriverWithCategory(String category) {
+        this.setCategory(category);
     }
 
     public String getCategory() {
@@ -15,6 +16,8 @@ public class DriverWitCategory implements DriverBehavior {
         this.category = category;
     }
 
+
+
     @Override
     public void start() {
         System.out.print("Водитель с правами категории " + getCategory() + " стартует на ");
@@ -23,5 +26,13 @@ public class DriverWitCategory implements DriverBehavior {
     @Override
     public void stop() {
         System.out.print("Водитель с правами категории " + getCategory() + " останавливается ");
+    }
+
+    public String getNameDriver() {
+        return nameDriver;
+    }
+
+    public void setNameDriver(String nameDriver) {
+        this.nameDriver = nameDriver;
     }
 }
