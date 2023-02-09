@@ -30,6 +30,7 @@ public class Main {
         allTypesOfTransport.addAll(racingBuses);
         allTypesOfTransport.addAll(racingTrucks);
 
+
         System.out.println("\nHashMap realisation");
         HashMap<Transport, Mechanic> repairTeams = new HashMap<>();
         for (Transport transport : allTypesOfTransport
@@ -39,6 +40,7 @@ public class Main {
         for (HashMap.Entry<Transport, Mechanic> team : repairTeams.entrySet()) {
             System.out.println("Transport : " + team.getKey() + ", Mechanic : " + team.getValue());
         }
+
 
         System.out.println("\nAll types of transport added to diagnostic queue");
         AutoService.carsToService.addAll(allTypesOfTransport);
