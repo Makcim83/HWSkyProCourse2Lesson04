@@ -1,14 +1,11 @@
 package Transport;
 
-
-public abstract class Transport implements StartBehavior, StopBehavior {
+public abstract class Transport implements DriverBehavior {
     private final String brand;
     private final String model;
     private final float engineValue;
-    private final String needCategory;
-
-    StartBehavior startBehavior;
-    StopBehavior stopBehavior;
+    private String needCategory;
+    private Mechanic mechanic;
 
     public Transport(String brand,
                      String model,
@@ -18,6 +15,11 @@ public abstract class Transport implements StartBehavior, StopBehavior {
         this.model = validateString(model, "Default");
         this.engineValue = validateFloat(engineValue);
         this.needCategory = validateString(needCategory, "No");
+        this.mechanic = AutoService.getNextMechanic();
+    }
+
+    public boolean isNeedDiagnostic() {
+        return false;
     }
 
     public String getBrand() {
@@ -62,6 +64,4 @@ public abstract class Transport implements StartBehavior, StopBehavior {
     public void stop() {
         System.out.println(getBrand() + " Stop moving");
     }
-
-
 }

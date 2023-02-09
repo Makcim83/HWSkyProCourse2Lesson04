@@ -1,18 +1,25 @@
 package Transport;
 
 public class Car extends Transport {
-    public DriverWitCategory driverBCategory = new DriverWitCategory(getNeedCategory());
+
+    public DriverWithCategory driverBCategory = new DriverWithCategory(getNeedCategory());
 
     public Car(String brand,
                String model,
                float engineValue,
-               String needCategory) {
+               String needCategory,
+               Mechanic mechanic) {
         super(brand,
                 model,
                 engineValue,
-                needCategory);
+                needCategory
+        );
     }
 
+    @Override
+    public boolean isNeedDiagnostic() {
+        return true;
+    }
 
     @Override
     public String toString() {
@@ -29,6 +36,5 @@ public class Car extends Transport {
     public void stop() {
         driverBCategory.stop();
         System.out.println(getBrand());
-
     }
 }

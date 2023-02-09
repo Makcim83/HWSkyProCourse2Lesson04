@@ -2,15 +2,22 @@ package Transport;
 
 public class Truck extends Transport {
 
-    public DriverWitCategory driverWitCategory = new DriverWitCategory(getNeedCategory());
+    public DriverWithCategory driverWitCategory = new DriverWithCategory(getNeedCategory());
+
     public Truck(String brand,
                  String model,
                  float engineValue,
-                 String needCategory) {
+                 String needCategory,
+                 Mechanic mechanic) {
         super(brand,
                 model,
                 engineValue,
                 needCategory);
+    }
+
+    @Override
+    public boolean isNeedDiagnostic() {
+        return true;
     }
 
     @Override

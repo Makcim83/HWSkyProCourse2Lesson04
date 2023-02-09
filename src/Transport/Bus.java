@@ -1,15 +1,28 @@
 package Transport;
 
 public class Bus extends Transport {
-    DriverWitCategory driverWitCategory = new DriverWitCategory("D");
+    DriverWithCategory driverWitCategory = new DriverWithCategory("D");
+
     public Bus(String brand,
                String model,
                float engineValue,
-               String needCategory) {
+               String needCategory,
+               Mechanic mechanic) {
         super(brand,
                 model,
                 engineValue,
                 needCategory);
+    }
+
+    @Override
+    public boolean isNeedDiagnostic() {
+        try {
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            return false;
+        }
     }
 
     @Override
