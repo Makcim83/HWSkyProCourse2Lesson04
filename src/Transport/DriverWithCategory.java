@@ -17,7 +17,6 @@ public class DriverWithCategory implements DriverBehavior {
     }
 
 
-
     @Override
     public void start() {
         System.out.print("Водитель с правами категории " + getCategory() + " стартует на ");
