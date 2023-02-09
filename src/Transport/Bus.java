@@ -11,7 +11,8 @@ public class Bus extends Transport {
         super(brand,
                 model,
                 engineValue,
-                needCategory);
+                needCategory,
+                mechanic);
     }
 
     @Override

@@ -12,8 +12,8 @@ public class Car extends Transport {
         super(brand,
                 model,
                 engineValue,
-                needCategory
-        );
+                needCategory,
+                mechanic);
     }
 
     @Override

@@ -10,12 +10,13 @@ public abstract class Transport implements DriverBehavior {
     public Transport(String brand,
                      String model,
                      float engineValue,
-                     String needCategory) {
+                     String needCategory,
+                     Mechanic mechanic) {
         this.brand = validateString(brand, "Default");
         this.model = validateString(model, "Default");
         this.engineValue = validateFloat(engineValue);
         this.needCategory = validateString(needCategory, "No");
-        this.mechanic = AutoService.getNextMechanic();
+        this.mechanic = mechanic;
     }
 
     public boolean isNeedDiagnostic() {
@@ -36,6 +37,10 @@ public abstract class Transport implements DriverBehavior {
 
     public String getNeedCategory() {
         return needCategory;
+    }
+
+    public Mechanic getMechanic() {
+        return mechanic;
     }
 
     @Override

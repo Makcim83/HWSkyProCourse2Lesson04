@@ -1,6 +1,7 @@
 package Transport;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static Transport.AutoService.*;
 
@@ -14,27 +15,36 @@ public class Main {
         System.out.println(mechanics);
 
         ArrayList<Car> racingCars = new ArrayList<>();
-        racingCars.add(new Car("JAWA", "5", .7f, "B", getNextMechanic()));
-        racingCars.add(new Car("Audi", "A8", 1.7f, "B", getNextMechanic()));
+        racingCars.add(new Car("JAWA", "5", .7f, "B", new Mechanic("Oleg", "Car Motors")));
+        racingCars.add(new Car("Audi", "A8", 1.7f, "B", new Mechanic("Andrey", "Welding works")));
         racingCars.add(new Car("Lada", "2101", 1.1f, "B", getNextMechanic()));
         racingCars.add(new Car("BMW", "7", 1.9f, "B", getNextMechanic()));
         ArrayList<Bus> racingBuses = new ArrayList<>();
         racingBuses.add(new Bus("Paz", "111", 1.2f, "D", getNextMechanic()));
         ArrayList<Truck> racingTrucks = new ArrayList<>();
-        racingTrucks.add(new Truck("Kamaz", "2208", 2.0f, "C", getNextMechanic()));
-        racingTrucks.add(new Truck("ZIL", "130", 1.4f, "C", getNextMechanic()));
-        RacingAble.printAllRacingCars(racingCars.toArray(new Transport[0]));
-
+        racingTrucks.add(new Truck("Kamaz", "2208", 2.0f, "C", new Mechanic("Ivan", "Truck Fabric")));
+        racingTrucks.add(new Truck("ZIL", "130", 1.4f, "C", new Mechanic("Ivan", "Truck Fabric")));
 
         ArrayList<Transport> allTypesOfTransport = new ArrayList<>();
         allTypesOfTransport.addAll(racingCars);
         allTypesOfTransport.addAll(racingBuses);
         allTypesOfTransport.addAll(racingTrucks);
 
+        System.out.println("\nHashMap realisation");
+        HashMap<Transport, Mechanic> repairTeams = new HashMap<>();
+        for (Transport transport : allTypesOfTransport
+        ) {
+            repairTeams.put(transport, transport.getMechanic());
+        }
+        for (HashMap.Entry<Transport, Mechanic> team : repairTeams.entrySet()) {
+            System.out.println("Transport : " + team.getKey() + ", Mechanic : " + team.getValue());
+        }
+
         System.out.println("\nAll types of transport added to diagnostic queue");
         AutoService.carsToService.addAll(allTypesOfTransport);
         startDiagnostic(carsToService);
 
+        RacingAble.printAllRacingCars(racingCars.toArray(new Transport[0]));
 
         System.out.println("\nRace with all transport types");
         RacingAble.startTheRace(allTypesOfTransport.toArray(new Transport[0]));
