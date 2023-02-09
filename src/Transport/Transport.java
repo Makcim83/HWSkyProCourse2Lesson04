@@ -18,14 +18,9 @@ public abstract class Transport implements DriverBehavior {
         this.mechanic = AutoService.getNextMechanic();
     }
 
-    public boolean isNeedDiagnostic() throws Exception {
+    public boolean isNeedDiagnostic() {
         return false;
     }
-
-    public static void makeDiagnostic(Mechanic mechanic) throws DiagnosticExceptioon {
-        System.out.println("No mechanics, who can make diagnostic");
-    }
-
 
     public String getBrand() {
         return brand;
@@ -42,7 +37,6 @@ public abstract class Transport implements DriverBehavior {
     public String getNeedCategory() {
         return needCategory;
     }
-
 
     @Override
     public String toString() {

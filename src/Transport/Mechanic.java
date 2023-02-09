@@ -1,6 +1,6 @@
 package Transport;
 
-public class Mechanic implements AutoServiceBehavior {
+public class Mechanic {
     private String name;
     private String company;
 
@@ -29,8 +29,7 @@ public class Mechanic implements AutoServiceBehavior {
 
     @Override
     public String toString() {
-        return ("Mechaic " +
-                getName() + " " +
+        return (getName() + " " +
                 getCompany());
     }
 }

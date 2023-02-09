@@ -1,18 +1,17 @@
 package Transport;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import static Transport.AutoService.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("\nAuto service personal will make Diagnostic Cars before Racing");
-        AutoService.mechanics.offer(new Mechanic("Ivan", "Wheels"));
-        AutoService.mechanics.offer(new Mechanic("Oleg", "Car Motors"));
-        AutoService.mechanics.offer(new Mechanic("Andrey", "Welding works"));
-        AutoService.mechanics.offer(new Mechanic("Michail", "Wash and clean"));
-        System.out.println(mechanics.toString());
+        mechanics.offer(new Mechanic("Ivan", "Wheels"));
+        mechanics.offer(new Mechanic("Oleg", "Car Motors"));
+        mechanics.offer(new Mechanic("Andrey", "Welding works"));
+        mechanics.offer(new Mechanic("Michail", "Wash and clean"));
+        System.out.println(mechanics);
 
         ArrayList<Car> racingCars = new ArrayList<>();
         racingCars.add(new Car("JAWA", "5", .7f, "B", getNextMechanic()));
@@ -33,9 +32,8 @@ public class Main {
         allTypesOfTransport.addAll(racingTrucks);
 
         System.out.println("\nAll types of transport added to diagnostic queue");
-        carsToService = new LinkedList<>();
-        carsToService.addAll(allTypesOfTransport);
-        AutoService.diagnostic(carsToService);
+        AutoService.carsToService.addAll(allTypesOfTransport);
+        startDiagnostic(carsToService);
 
 
         System.out.println("\nRace with all transport types");
