@@ -1,17 +1,17 @@
 package Transport;
 
 public class Bus extends Transport {
-    DriverWithCategory driverWitCategory = new DriverWithCategory("D");
+    DriverWithCategory driverWitCategory = new DriverWithCategory("David", "D");
 
     public Bus(String brand,
                String model,
                float engineValue,
-               String needCategory,
+               DriverWithCategory driverWithCategory,
                Mechanic mechanic) {
         super(brand,
                 model,
                 engineValue,
-                needCategory,
+                driverWithCategory,
                 mechanic);
     }
 
@@ -33,14 +33,11 @@ public class Bus extends Transport {
 
     @Override
     public void start() {
-
-        driverWitCategory.start();
-        System.out.println(getBrand());
+        System.out.println("Start Bus");
     }
 
     @Override
     public void stop() {
-        driverWitCategory.start();
-        System.out.println(getBrand());
+        System.out.println("Stop Bus");
     }
 }

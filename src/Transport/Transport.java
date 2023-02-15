@@ -4,18 +4,18 @@ public abstract class Transport implements DriverBehavior {
     private final String brand;
     private final String model;
     private final float engineValue;
-    private String needCategory;
+    private DriverWithCategory driverWithCategory;
     private Mechanic mechanic;
 
     public Transport(String brand,
                      String model,
                      float engineValue,
-                     String needCategory,
+                     DriverWithCategory driverWithCategory,
                      Mechanic mechanic) {
         this.brand = validateString(brand, "Default");
         this.model = validateString(model, "Default");
         this.engineValue = validateFloat(engineValue);
-        this.needCategory = validateString(needCategory, "No");
+        this.driverWithCategory = driverWithCategory;
         this.mechanic = mechanic;
     }
 
@@ -35,8 +35,8 @@ public abstract class Transport implements DriverBehavior {
         return engineValue;
     }
 
-    public String getNeedCategory() {
-        return needCategory;
+    public void setDriverWithCategory(DriverWithCategory driverWithCategory) {
+        this.driverWithCategory = driverWithCategory;
     }
 
     public Mechanic getMechanic() {

@@ -2,17 +2,15 @@ package Transport;
 
 public class Truck extends Transport {
 
-    public DriverWithCategory driverWitCategory = new DriverWithCategory(getNeedCategory());
-
     public Truck(String brand,
                  String model,
                  float engineValue,
-                 String needCategory,
+                 DriverWithCategory driverWithCategory,
                  Mechanic mechanic) {
         super(brand,
                 model,
                 engineValue,
-                needCategory,
+                driverWithCategory,
                 mechanic);
     }
 
@@ -28,13 +26,11 @@ public class Truck extends Transport {
 
     @Override
     public void start() {
-        driverWitCategory.start();
-        System.out.println(getBrand());
+        System.out.println("Start Truck");
     }
 
     @Override
     public void stop() {
-        driverWitCategory.start();
-        System.out.println(getBrand());
+        System.out.println("Stop Truck");
     }
 }
