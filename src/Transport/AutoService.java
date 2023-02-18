@@ -8,9 +8,9 @@ public abstract class AutoService {
     public static Queue<Mechanic> mechanics = new LinkedList<>();
 
     public static <T extends Transport> void diagnostic(Transport trr) {
-            Mechanic m = mechanics.peek();
-            System.out.println("Diagnostic of " + trr.getBrand() + " made by mechanic : " + m.toString());
-            rotateQueue(mechanics);
+        Mechanic m = mechanics.peek();
+        System.out.println("Diagnostic of " + trr.getBrand() + " made by mechanic : " + m.toString());
+        rotateQueue(mechanics);
     }
 
     public static void startDiagnostic(Queue<Transport> carsToService) throws Exception {
@@ -42,4 +42,3 @@ public abstract class AutoService {
         q.remove(o);
     }
 }
-
